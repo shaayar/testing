@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Singer {
+  bio         String?
+  createdAt   DateTime  @default(now())
+  dateOfBirth DateTime?
+  description String?
+  id          String    @id @default(cuid())
+  name        String?
+  photoUrl    String?
+  trackId     String?
+  updatedAt   DateTime  @updatedAt
+  userId      String?
+}
